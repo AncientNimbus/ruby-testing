@@ -1,16 +1,5 @@
 # frozen_string_literal: true
 
-# Now that the basics are covered, we are going to use a typical workflow
-# for the rest of the lessons. The class being tested will be located in
-# a different file.
-
-# The file order to complete this lesson:
-# 1. Familiarize yourself with the class in lib/10_drink.rb
-# 2. Complete spec/10_drink_spec.rb
-
-# If you are using VS Code, you can split the screen to see both files at
-# the same time (view menu -> editor layout).
-
 require_relative '../lib/10_drink'
 
 describe Drink do
@@ -89,35 +78,32 @@ end
 describe Drink do
   describe '#initialize' do
     context 'when type is specified and ounces is default' do
-      # Create an explicit subject, using 'described_class' and your choice of
-      # beverage type.
+      subject(:my_tea) { described_class.new('green tea') }
 
-      # remove the 'x' before running this test
-      xit 'is your choice of beverage' do
+      it 'is your choice of beverage' do
+        expect(my_tea.type).to eq('green tea')
       end
 
-      # remove the 'x' before running this test
-      xit 'has 16 ounces' do
+      it 'has 16 ounces' do
+        expect(my_tea.ounces).to eq(16)
       end
     end
   end
 
   describe '#full?' do
     context 'when drink has 16 ounces or more' do
-      # Create an explicit subject, using 'described_class' and your choice of
-      # beverage type.
+      subject(:my_soda) { described_class.new('Bepis') }
 
-      # remove the 'x' before running this test
-      xit 'is full' do
+      it 'is full' do
+        expect(my_soda).to be_full
       end
     end
 
     context 'when drink has less than 16 ounces' do
-      # Create an explicit subject, using 'described_class' and your choice of
-      # beverage type. In addition, specify ounces to be any number under 16.
+      subject(:my_wine) { described_class.new('Red wine', 8) }
 
-      # remove the 'x' before running this test
-      xit 'is not full' do
+      it 'is not full' do
+        expect(my_wine).not_to be_full
       end
     end
   end
