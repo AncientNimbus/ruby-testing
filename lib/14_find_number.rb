@@ -21,7 +21,7 @@ class FindNumber
     guess < answer ? self.min = guess + 1 : self.max = guess - 1
   end
 
-  def game_over
+  def game_over?
     guess == answer
   end
 end

@@ -181,7 +181,7 @@ describe FindNumber do
       # be able to pass yet because you haven't written the method!
 
       it 'is game over' do
-        expect(guess_eq_random_number.game_over).to be true
+        expect(guess_eq_random_number).to be_game_over
       end
     end
 
@@ -194,7 +194,7 @@ describe FindNumber do
     context 'when guess and random_number are not equal' do
       subject(:guess_not_eq_random_number) { described_class.new(0, 9, random_number, 6) }
       it 'is not game over' do
-        expect(guess_not_eq_random_number.game_over).not_to be true
+        expect(guess_not_eq_random_number).not_to be_game_over
       end
     end
   end
