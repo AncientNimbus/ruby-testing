@@ -2,7 +2,8 @@
 
 # class for computer to find the answer using a binary search
 class BinarySearch
-  attr_reader :min, :max, :answer, :guess
+  attr_accessor :min, :max
+  attr_reader :answer, :guess
 
   def initialize(min, max, answer = RandomNumber.new(min, max), guess = nil)
     @min = min
@@ -20,6 +21,6 @@ class BinarySearch
   end
 
   def update_range
-    guess < answer ? @min = guess + 1 : @max = guess - 1
+    guess < answer ? self.min = guess + 1 : self.max = guess - 1
   end
 end
